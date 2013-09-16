@@ -9,6 +9,7 @@ from utils import Integration
 
 def assert_mode(path, mode):
     result = run("stat -c \"%%a\" %s" % path).stdout
+    result = result.strip()
     assert result == mode, "Was expecting \""+mode+"\" got \""+result+"\""
 
 
@@ -33,6 +34,7 @@ class TestOperations(Integration):
         put(StringIO("#!/bin/bash\necho hi"), "%s/myapp" % self.dirpath, mode="0755")
         with path(self.dirpath):
             result = run('myapp').stdout
+            result = result.strip()
             assert result == 'hi', "Was expecting \"hi\" got \""+result+"\""
 
     def test_string_put_mode_arg_doesnt_error(self):
