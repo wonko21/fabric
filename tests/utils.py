@@ -238,10 +238,10 @@ Got:
 """ % params
     default_msg = """
 Expected:
-%(expected)s
+%(expected)s---
 
 Got:
-%(result)s
+%(result)s---
 """ % params
     if (repr(result) != str(result)) or (repr(expected) != str(expected)):
         default_msg += aka
