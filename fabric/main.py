@@ -704,14 +704,6 @@ Remember that -f can be used to specify fabfile path, and use -h for help.""")
             options.list_format = 'short'
             options.list_commands = True
 
-        # overwrite any previously set hosts
-        # with the host list (if given)
-        if state.env["hosts_file"]:
-            state.env["hosts"] = []
-            import fileinput
-            for line in fileinput.input(state.env["hosts_file"]):
-                state.env["hosts"].append(line.strip())
-            
         # List available commands
         if options.list_commands:
             show_commands(docstring, options.list_format)

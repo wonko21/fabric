@@ -151,12 +151,6 @@ env_options = [
         help="comma-separated list of hosts to operate on"
     ),
 
-    make_option('--hosts-file',
-        default=[],
-        dest="hosts_file",
-        help="path to a file defining the hosts line by line"
-    ),
-    
     make_option('-i',
         action='append',
         dest='key_filename',
