@@ -268,6 +268,7 @@ class TestNetwork(FabricTest):
             # Also test that the captured value matches, too.
             eq_(output_string, result)
 
+    @mock_streams('stdout')
     @server()
     def test_dont_strip_newlines(self):
         """
